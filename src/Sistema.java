@@ -1,14 +1,15 @@
 import exemplo.Lote;
 import exemplo.Produto;
+import exemplo.ProdutoRepository;
 
 public class Sistema {
 
 	public static void main(String[] args) {
-		
-		Produto produto = new Produto("Leite", "Parmalat");
-		Lote lote = new Lote(produto, 10L);
-		
-		System.out.println(produto);
-		System.out.println(lote);
-	}
+
+		ProdutoRepository repProduto = new ProdutoRepository();
+		String prod1id = repProduto.addProduto(new Produto("Leite", "Parmalat"));
+		repProduto.addProduto(new Produto("Chocolate", "Garoto"));
+		repProduto.addProduto(new Produto("Refrigerante", "Fante"));
+
+		System.out.println(repProduto.recuperaProduto(prod1id));}
 }
